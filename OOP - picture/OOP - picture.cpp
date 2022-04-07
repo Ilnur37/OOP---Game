@@ -12,10 +12,7 @@
 #include "BattleShip.h"
 #include "Liner.h"
 
-#include "Ellips.h"
 
-#include "Line.h"
-#include "Rectan.h"
 
 HDC hdc;
 
