@@ -40,12 +40,9 @@ int main()
 		//если контекст существует - можем работать
 		if (hdc != 0)
 		{
-
-			
-
 			Deck ADeck(300, 500, 10);
 			Liner ALiner(200, 300, 10);
-			BattleShip ABattleShip(650, 450, 15);
+			BattleShip ABattleShip(650, 450, 20);
 			ADeck.Show();
 			ALiner.Show();
 			ABattleShip.Show();
@@ -53,7 +50,9 @@ int main()
 			if (KEY_DOWN(49))   //цифра 1
 			break;
 
-			ALiner.Drag(20);
+			//ALiner.Drag(20);
+			//ADeck.Drag(20);
+			ABattleShip.Drag(20);
 
 			/*int x = 300, y = 450, coeff = 10;
 

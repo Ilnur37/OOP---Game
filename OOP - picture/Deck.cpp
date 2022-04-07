@@ -31,8 +31,8 @@ void Deck::Hide()
 	Rectangle(hdc, X1 + 2 * coeff, Y1 - 12 * coeff, X1 + 6 * coeff, Y1 - 8 * coeff);
 	Rectangle(hdc, X1 + 6 * coeff, Y1 - 18 * coeff, X1 + 10 * coeff, Y1 - 8 * coeff);
 	Rectangle(hdc, X1 + 10 * coeff, Y1 - 16 * coeff, X1 + 14 * coeff, Y1 - 8 * coeff);
-	Rectangle(hdc, X1 + 17 * coeff, Y1 - 11 * coeff, X1 + 21 * coeff, Y1 - 8 * coeff);
-	Rectangle(hdc, X1 + 21 * coeff, Y1 - 10 * coeff, X1 + 26 * coeff, Y1 - 9 * coeff);
+	/*Rectangle(hdc, X1 + 17 * coeff, Y1 - 11 * coeff, X1 + 21 * coeff, Y1 - 8 * coeff);
+	Rectangle(hdc, X1 + 21 * coeff, Y1 - 10 * coeff, X1 + 26 * coeff, Y1 - 9 * coeff);*/
 
 	// ”ничтожим нами созданные объекты  
 	DeleteObject(PenR);

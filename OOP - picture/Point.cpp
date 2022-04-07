@@ -1,7 +1,8 @@
 #include "Point.h"
 
-Point::Point(int X1, int Y1):Location(X1, Y1)
+Point::Point(int X1, int Y1) : Location(X1, Y1)
 {
+	//this->speed = speed;
 }
 
 Point::~Point()

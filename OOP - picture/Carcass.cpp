@@ -48,7 +48,7 @@ void Carcass::Hide()
 	LineTo(hdc, X1, Y1);
 
 	Ellipse(hdc, X1 + 7 * coeff, Y1 - 6 * coeff, X1 + 11 * coeff, Y1 - 2 * coeff);
-	Ellipse(hdc, X1 + 20, Y1 - 6 * coeff, X1 + 6 * coeff, Y1 - 2 * coeff);
+	Ellipse(hdc, X1 + 2 * coeff, Y1 - 6 * coeff, X1 + 6 * coeff, Y1 - 2 * coeff);
 	Ellipse(hdc, X1 + 12 * coeff, Y1 - 6 * coeff, X1 + 16 * coeff, Y1 - 2 * coeff);
 
 	// ”ничтожим нами созданные объекты  
