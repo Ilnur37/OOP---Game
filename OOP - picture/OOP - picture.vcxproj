@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -139,25 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ellips.cpp" />
+    <ClCompile Include="BattleShip.cpp" />
+    <ClCompile Include="Carcass.cpp" />
+    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="GetConlWin.cpp" />
-    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="Liner.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="OOP - picture.cpp" />
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Rectan.cpp" />
-    <ClCompile Include="Ring.cpp" />
-    <ClCompile Include="Trapezoid.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ellips.h" />
+    <ClInclude Include="BattleShip.h" />
+    <ClInclude Include="Carcass.h" />
+    <ClInclude Include="Deck.h" />
     <ClInclude Include="GetConlWin.h" />
-    <ClInclude Include="Line.h" />
+    <ClInclude Include="Liner.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="Rectan.h" />
-    <ClInclude Include="Ring.h" />
-    <ClInclude Include="Trapezoid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

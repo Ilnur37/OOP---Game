@@ -7,12 +7,15 @@
 #include "Location.h"
 #include "Point.h"
 
+#include "Carcass.h"
+#include "Deck.h"
+#include "BattleShip.h"
+#include "Liner.h"
+
 #include "Ellips.h"
-#include "Ring.h"
 
 #include "Line.h"
 #include "Rectan.h"
-#include "Trapezoid.h"
 
 HDC hdc;
 
@@ -21,34 +24,34 @@ HDC hdc;
 
 using namespace std;
 
-//vector<Point*> vector_of_objects;
+vector<Point*> vector_of_objects;
 
-void CreateShip(int x, int y, int coeff);
-
-void CreateShip(int x, int y, int coeff)
-{
-	Trapezoid ATrapezoid(x, y, x + 18 * coeff, y, x + 22 * coeff, y - 8 * coeff, x - 4 * coeff, y - 8 * coeff);
-	ATrapezoid.Show();
-
-	Rectan rec1(x + 2 * coeff, y - 12 * coeff, x + 6 * coeff, y - 8 * coeff);
-	rec1.Show();
-	Rectan rec2(x + 6 * coeff, y - 18 * coeff, x + 10 * coeff, y - 8 * coeff);
-	rec2.Show();
-	Rectan rec3(x + 10 * coeff, y - 16 * coeff, x + 14 * coeff, y - 8 * coeff);
-	rec3.Show();
-
-	Rectan rec4(x + 17 * coeff, y - 11 * coeff, x + 21 * coeff, y - 8 * coeff);
-	rec4.Show();
-	Rectan rec5(x + 21 * coeff, y - 10 * coeff, x + 26 * coeff, y - 9 * coeff);
-	rec5.Show();
-
-	Ring ring1(x + 9 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
-	ring1.Show();
-	Ring ring2(x + 4 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
-	ring2.Show();
-	Ring ring3(x + 14 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
-	ring3.Show();
-}
+//void CreateShip(int x, int y, int coeff);
+//
+//void CreateShip(int x, int y, int coeff)
+//{
+//	Trapezoid ATrapezoid(x, y, x + 18 * coeff, y, x + 22 * coeff, y - 8 * coeff, x - 4 * coeff, y - 8 * coeff);
+//	ATrapezoid.Show();
+//
+//	Rectan rec1(x + 2 * coeff, y - 12 * coeff, x + 6 * coeff, y - 8 * coeff);
+//	rec1.Show();
+//	Rectan rec2(x + 6 * coeff, y - 18 * coeff, x + 10 * coeff, y - 8 * coeff);
+//	rec2.Show();
+//	Rectan rec3(x + 10 * coeff, y - 16 * coeff, x + 14 * coeff, y - 8 * coeff);
+//	rec3.Show();
+//
+//	Rectan rec4(x + 17 * coeff, y - 11 * coeff, x + 21 * coeff, y - 8 * coeff);
+//	rec4.Show();
+//	Rectan rec5(x + 21 * coeff, y - 10 * coeff, x + 26 * coeff, y - 9 * coeff);
+//	rec5.Show();
+//
+//	Ellips ring1(x + 9 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
+//	ring1.Show();
+//	Ellips ring2(x + 4 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
+//	ring2.Show();
+//	Ellips ring3(x + 14 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
+//	ring3.Show();
+//}
 
 int main()
 {
@@ -219,8 +222,29 @@ int main()
 			Ring ring3(440, 410, 20, 4);
 			ring3.Show();*/
 
+			Deck ADeck(300, 500, 10);
+			Liner ALiner(200, 300, 10);
+			BattleShip ABattleShip(650, 450, 15);
+			ADeck.Show();
+			ALiner.Show();
+			ABattleShip.Show();
+			while (1)
+			if (KEY_DOWN(49))   //цифра 1
+			break;
 
-			CreateShip(300, 450, 10);
+
+			ALiner.Drag(20);
+
+			//Carcass ACarcass(300, 450);
+			//ACarcass.Show();
+
+			//while (1)
+			//	if (KEY_DOWN(49))   //цифра 1
+			//		break;
+
+			//ACarcass.Drag(10);
+
+			//CreateShip(300, 450, 10);
 
 			//CreateShip(600, 300, 5);
 

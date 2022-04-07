@@ -46,7 +46,7 @@ void Point::Drag(int Step)
 			{
 				FigX1--;
 				MoveTo(FigX1, FigY1);
-				Sleep(50);
+				Sleep(30);
 			}
 		}
 
@@ -56,7 +56,7 @@ void Point::Drag(int Step)
 			{
 				FigX1++;
 				MoveTo(FigX1, FigY1);
-				Sleep(50);
+				Sleep(30);
 			}
 		}
 
@@ -66,7 +66,7 @@ void Point::Drag(int Step)
 			{
 				FigY1++;
 				MoveTo(FigX1, FigY1);
-				Sleep(50);
+				Sleep(30);
 			}
 		}
 
@@ -76,7 +76,7 @@ void Point::Drag(int Step)
 			{
 				FigY1--;
 				MoveTo(FigX1, FigY1);
-				Sleep(50);
+				Sleep(30);
 			}
 		}
 	}

@@ -11,5 +11,5 @@ public:
 	virtual void Hide();
 
 	void MoveTo(int X1, int Y1);
-	virtual void Drag(int Step);			//буксировка фигуры
+	void Drag(int Step);			//буксировка фигуры
 };
