@@ -1,6 +1,6 @@
 #pragma once
-#include "Deck.h"
-class Liner : public Deck
+#include "Carcass.h"
+class Liner : public Carcass
 {
 public:
 	Liner(int X1, int Y1, int coeff);

@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include <cmath>
 
 class Carcass : public Point
 {

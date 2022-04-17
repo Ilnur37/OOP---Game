@@ -1,20 +1,26 @@
 ﻿#include <iostream>
 #include <Windows.h>
 #include <conio.h>
+#include <thread>
 #include <vector>
+
+#include "Player.h"
 
 #include "GetConlWin.h"
 #include "Location.h"
 #include "Point.h"
 
 #include "Carcass.h"
-#include "Deck.h"
 #include "BattleShip.h"
 #include "Liner.h"
-
-
+#include "Boat.h"
+#include "SuperBatShip.h"
 
 HDC hdc;
+
+HDC hdc2;
+
+HDC hdc3;
 
 //макрос для определения кода нажатой клавиши
 #define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
@@ -36,89 +42,66 @@ int main()
 	{
 		//получим контекст устройства для консольного окна
 		hdc = GetWindowDC(hwnd);
-
+		hdc2 = GetWindowDC(hwnd);
+		hdc3 = GetWindowDC(hwnd);
 		//если контекст существует - можем работать
 		if (hdc != 0)
 		{
-			Deck ADeck(300, 500, 10);
-			Liner ALiner(200, 300, 10);
-			BattleShip ABattleShip(650, 450, 20);
-			ADeck.Show();
-			ALiner.Show();
-			ABattleShip.Show();
-			while (1)
-			if (KEY_DOWN(49))   //цифра 1
-			break;
+			//* * * * * * * 
+			//vector <Point*> vector_of_objects;
 
-			//ALiner.Drag(20);
-			//ADeck.Drag(20);
-			ABattleShip.Drag(20);
+			//SuperBatShip ASuper(200, 300, 10);
+			//BattleShip ABattleShip(650, 450, 10);
+			//Boat ACar(300, 500, 10);
+			//
+			//vector_of_objects.push_back(&ASuper);
+			//vector_of_objects.push_back(&ABattleShip);
+			//vector_of_objects.push_back(&ACar);
+			//
+			//Player player;
+			//player.ShowAll(vector_of_objects);
 
-			/*int x = 300, y = 450, coeff = 10;
+			//while (1)
+			//	if (KEY_DOWN(49))   //цифра 1
+			//		break;
+			//player.DragAll(vector_of_objects);
+			//* * * * * * * *
 
-			Line bottomL(x, y, x + 18 * coeff, y);
-			bottomL.Show();
-			vector_of_objects.push_back(&bottomL);
+			//* * * * * * * *
+			vector <Point*> vector_of_objects;
 
-			Line leftL(x, y, x - 4 * coeff, y - 8 * coeff);
-			leftL.Show();
-			vector_of_objects.push_back(&leftL);
+			Liner Aliner(1600, 300, 8);
+			SuperBatShip ASuper(200, 500, 10);
+			BattleShip ABattleShip(1600, 500, 8);
+			Boat Aboat(1600, 700, 8);
+			Boat Bboat(1200, 700, 8);
 
-			Line rightL(x + 18 * coeff, y, x + 22 * coeff, y - 8 * coeff);
-			rightL.Show();
-			vector_of_objects.push_back(&rightL);
+			vector_of_objects.push_back(&ASuper);
+			vector_of_objects.push_back(&Aliner);
+			vector_of_objects.push_back(&ABattleShip);
+			vector_of_objects.push_back(&Aboat);
+			vector_of_objects.push_back(&Bboat);
+			Player player;
 
-			Line topL(x - 4 * coeff, y - 8 * coeff, x + 22 * coeff, y - 8 * coeff);
-			topL.Show();
-			vector_of_objects.push_back(&topL);
-
-
-			Rectan rec1(x + 2 * coeff, y - 12 * coeff, x + 6 * coeff, y - 8 * coeff);
-			rec1.Show();
-			vector_of_objects.push_back(&rec1);
-
-			Rectan rec2(x + 6 * coeff, y - 18 * coeff, x + 10 * coeff, y - 8 * coeff);
-			rec2.Show();
-			vector_of_objects.push_back(&rec2);
-
-			Rectan rec3(x + 10 * coeff, y - 16 * coeff, x + 14 * coeff, y - 8 * coeff);
-			rec3.Show();
-			vector_of_objects.push_back(&rec3);
-
-
-			Rectan rec4(x + 17 * coeff, y - 11 * coeff, x + 21 * coeff, y - 8 * coeff);
-			rec4.Show();
-			vector_of_objects.push_back(&rec4);
-
-			Rectan rec5(x + 21 * coeff, y - 10 * coeff, x + 26 * coeff, y - 9 * coeff);
-			rec5.Show();
-			vector_of_objects.push_back(&rec5);
-
-			Ring ring1(x + 9 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
-			ring1.Show();
-			vector_of_objects.push_back(&ring1);
-
-			Ring ring2(x + 4 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
-			ring2.Show();
-			vector_of_objects.push_back(&ring2);
-
-			Ring ring3(x + 14 * coeff, y - 4 * coeff, 2 * coeff, 0.4 * coeff);
-			ring3.Show();
-			vector_of_objects.push_back(&ring3);
-
-			while (1)	//бесконечный цикл буксировки фигуры
-			{
-				if (KEY_DOWN(VK_ESCAPE))     //конец работы 27
-					break;
-				for (int i = 0; i < vector_of_objects.size(); i++)
-				{
-					vector_of_objects[i]->Drag(10);
-				}
-			}*/
 			while (1)
 				if (KEY_DOWN(49))   //цифра 1
 					break;
+			player.ShowAll(vector_of_objects);
 
+			while (1)
+			if (KEY_DOWN(50))   //цифра 2
+			break;
+			player.Gamer1(vector_of_objects);
+			
+			while (1)
+				if (KEY_DOWN(51))   //цифра 3
+					break;
+			player.HideAll(vector_of_objects);
+
+			while (1)
+				if (KEY_DOWN(52))   //цифра 4
+					break;
+			player.ShowAll(vector_of_objects);
 		}
 	}
 }

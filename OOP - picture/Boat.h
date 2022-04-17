@@ -1,12 +1,11 @@
 #pragma once
 #include "Carcass.h"
-#include <wincrypt.h>
 
-class Deck : public Carcass
+class Boat : public Carcass
 {
 public:
-	Deck(int X1, int Y1, int coeff);
-	~Deck();
+	Boat(int X1, int Y1, int coeff);
+	~Boat();
 
 	void Show() override;
 	void Hide() override;

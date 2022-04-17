@@ -1,5 +1,10 @@
 #include "Location.h"
 
+
+Location::Location()
+{
+}
+
 Location::Location(int X1, int Y1)
 {
 	this->X1 = X1;

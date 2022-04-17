@@ -1,8 +1,11 @@
 #include "Point.h"
 
+Point::Point()
+{
+}
+
 Point::Point(int X1, int Y1) : Location(X1, Y1)
 {
-	//this->speed = speed;
 }
 
 Point::~Point()
@@ -27,7 +30,7 @@ void Point::MoveTo(int X1, int Y1)
 	Show();
 }
 
-void Point::Drag(int Step)
+void Point::Drag1()
 {
 	int FigX1, FigY1;   //новые координаты фигуры
 
@@ -43,42 +46,31 @@ void Point::Drag(int Step)
 
 		if (KEY_DOWN(VK_LEFT)) //стрелка влево  37
 		{
-			for (int i = 0; i < Step; i++)
-			{
-				FigX1--;
-				MoveTo(FigX1, FigY1);
-				Sleep(30);
-			}
+			FigX1--;
+			MoveTo(FigX1, FigY1);
+			Sleep(10);
 		}
 
 		if (KEY_DOWN(VK_RIGHT)) //стрелка вправо  39
 		{
-			for (int i = 0; i < Step; i++)
-			{
-				FigX1++;
-				MoveTo(FigX1, FigY1);
-				Sleep(30);
-			}
+			FigX1++;
+			MoveTo(FigX1, FigY1);
+			Sleep(10);
 		}
 
 		if (KEY_DOWN(VK_DOWN)) //стрелка вниз  40
 		{
-			for (int i = 0; i < Step; i++)
-			{
-				FigY1++;
-				MoveTo(FigX1, FigY1);
-				Sleep(30);
-			}
+			FigY1++;
+			MoveTo(FigX1, FigY1);
+			Sleep(10);
+			
 		}
 
 		if (KEY_DOWN(VK_UP)) //стрелка вверх  38
 		{
-			for (int i = 0; i < Step; i++)
-			{
-				FigY1--;
-				MoveTo(FigX1, FigY1);
-				Sleep(30);
-			}
+			FigY1--;
+			MoveTo(FigX1, FigY1);
+			Sleep(10);
 		}
 	}
 }

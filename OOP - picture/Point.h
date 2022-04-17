@@ -3,9 +3,8 @@
 
 class Point : public Location
 {
-private:
-	//int speed;
 public:
+	Point();
 	Point(int X1, int Y1);
 	~Point();
 
@@ -13,5 +12,5 @@ public:
 	virtual void Hide();
 
 	void MoveTo(int X1, int Y1);
-	void Drag(int Step);			//буксировка фигуры
+	void Drag1();			//буксировка фигуры
 };

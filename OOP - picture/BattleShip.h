@@ -1,7 +1,7 @@
 #pragma once
-#include "Deck.h"
+#include "Carcass.h"
 
-class BattleShip : public Deck
+class BattleShip : public Carcass
 {
 public:
 	BattleShip(int X1, int Y1, int coeff);
