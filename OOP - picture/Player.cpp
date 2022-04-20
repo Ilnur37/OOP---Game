@@ -128,7 +128,7 @@ void Player::Gamer1(Point* object1)
 			Sleep(10);
 			int startX1 = FigX1 + 260;
 			int startY1 = FigY1 - 100;
-			Player::Shooter1(startX1, startY1, flag);
+			Player::Shooter1(startX1, startY1);
 		}
 	}
 }
@@ -183,30 +183,30 @@ void Player::Gamer2(Point* object2)
 			Sleep(5);
 			int startX2 = FigX2 - 95;
 			int startY2 = FigY2 - 100;
-			Player::Shooter2(startX2, startY2, flag);
+			Player::Shooter2(startX2, startY2);
 		}
 	}
 }
 
-void Player::Shooter1(int a, int b, bool flag)
+void Player::Shooter1(int a1, int b1)
 {
 	HPEN PenR11 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
 	HPEN PenW11 = CreatePen(PS_SOLID, 3, RGB(245, 245, 245));
-	while (a < 1800) {
+	while (a1 < 1800) {
 		Sleep(1);
 		SelectObject(hdc2, PenR11);	//сделаем перо активным
-		Rectangle(hdc2, a, b, a + 20, b + 10);
+		Rectangle(hdc2, a1, b1, a1 + 20, b1 + 10);
 
 		Sleep(10);
 		SelectObject(hdc2, PenW11);	//сделаем перо активным
-		Rectangle(hdc2, a, b, a + 20, b + 10);
+		Rectangle(hdc2, a1, b1, a1 + 20, b1 + 10);
 
 		for (int i = 0; i < vector_of_objects.size(); i++)
 		{
-			if ((a > (vector_of_objects[i]->GetX1() + 80)) &&
-				(a < (vector_of_objects[i]->GetX1() + 100)) &&
-				(b > (vector_of_objects[i]->GetY1() - 180)) &&
-				(b < (vector_of_objects[i]->GetY1()))) {
+			if ((a1 > (vector_of_objects[i]->GetX1() + 80)) &&
+				(a1 < (vector_of_objects[i]->GetX1() + 100)) &&
+				(b1 > (vector_of_objects[i]->GetY1() - 180)) &&
+				(b1 < (vector_of_objects[i]->GetY1()))) {
 				Crush(vector_of_objects[i]);
 
 				DeleteObject(PenR11);
@@ -215,14 +215,14 @@ void Player::Shooter1(int a, int b, bool flag)
 				return;
 			}
 		}
-		a += 15;
+		a1 += 15;
 	}
 	DeleteObject(PenR11);
 	DeleteObject(PenW11);
 	Sleep(10);
 }
 
-void Player::Shooter2(int a2, int b2, bool flag)
+void Player::Shooter2(int a2, int b2)
 {
 	HPEN PenR22 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
 	HPEN PenW22 = CreatePen(PS_SOLID, 3, RGB(245, 245, 245));
@@ -239,8 +239,8 @@ void Player::Shooter2(int a2, int b2, bool flag)
 
 		for (int i = 0; i < vector_of_objects.size(); i++)
 		{
-			if ((a2 > (vector_of_objects[i]->GetX1() + 90)) &&
-				(a2 < (vector_of_objects[i]->GetX1() + 110)) &&
+			if ((a2 > (vector_of_objects[i]->GetX1() + 80)) &&
+				(a2 < (vector_of_objects[i]->GetX1() + 100)) &&
 				(b2 > (vector_of_objects[i]->GetY1() - 180)) &&
 				(b2 < (vector_of_objects[i]->GetY1()))) {
 				Crush(vector_of_objects[i]);

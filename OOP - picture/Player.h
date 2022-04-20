@@ -14,8 +14,8 @@ public:
 
 	void Gamer1(Point* object1);
 	void Gamer2(Point* object2);
-	void Shooter1(int a, int b, bool flag);
-	void Shooter2(int a2, int b2, bool flag);
+	void Shooter1(int a, int b);
+	void Shooter2(int a2, int b2);
 
 	void Crush(Point* object);
 };
