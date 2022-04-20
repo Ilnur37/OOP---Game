@@ -1,10 +1,12 @@
 #include "Point.h"
 
+std::mutex mtx1;
+
 Point::Point()
 {
 }
 
-Point::Point(int X1, int Y1) : Location(X1, Y1)
+Point::Point(int X1, int Y1, int coeff) : Location(X1, Y1, coeff)
 {
 }
 
@@ -24,10 +26,12 @@ void Point::Hide()
 
 void Point::MoveTo(int X1, int Y1)
 {
+	mtx1.lock();
 	Hide();
 	this->X1 = X1;
 	this->Y1 = Y1;
 	Show();
+	mtx1.unlock();
 }
 
 void Point::Drag1()
