@@ -30,7 +30,7 @@ void Carcass::Show()
 void Carcass::Hide()
 {
 	// Зададим перо и цвет пера - красный
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(250, 250, 250));
+	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 	SelectObject(hdc, PenR);	//сделаем перо активным
 
 	MoveToEx(hdc, X1, Y1, NULL);

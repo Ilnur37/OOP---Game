@@ -36,7 +36,7 @@ void SuperBatShip::Hide()
 {
 	BattleShip::Hide();
 
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(250, 250, 250));
+	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 	SelectObject(hdc, PenR);	//сделаем перо активным
 
 	MoveToEx(hdc, X1 + 2 * coeff, Y1 - 11 * abs(coeff), NULL);

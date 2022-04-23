@@ -34,7 +34,7 @@ void Boat::Hide()
 {
 	Carcass::Hide();
 
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(250, 250, 250));
+	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 	SelectObject(hdc, PenR);	//сделаем перо активным
 
 	Rectangle(hdc, X1 + 10 * coeff, Y1 - 17 * abs(coeff), X1 + 11 * coeff, Y1 - 8 * abs(coeff));

@@ -21,7 +21,7 @@ void Point::Show()
 
 void Point::Hide()
 {
-	SetPixel(hdc, X1, Y1, RGB(250, 250, 250));
+	SetPixel(hdc, X1, Y1, RGB(255, 255, 255));
 }
 
 void Point::MoveTo(int X1, int Y1)

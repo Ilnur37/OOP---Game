@@ -1,21 +1,15 @@
 #pragma once
 #include <vector>
-#include "Point.h"
+#include "Fragmentation.h"
 #include <vector>
 
-extern std::vector <Point*> vector_of_objects;
 
-class Player : public Point
+class Player : public Fragmentation
 {
 public:
 	void ShowAll();
 	void HideAll();
-	void DragAll();
 
 	void Gamer1(Point* object1);
 	void Gamer2(Point* object2);
-	void Shooter1(int a, int b);
-	void Shooter2(int a2, int b2);
-
-	void Crush(Point* object);
 };

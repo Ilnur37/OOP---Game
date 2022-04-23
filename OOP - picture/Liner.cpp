@@ -41,7 +41,7 @@ void Liner::Hide()
 {
 	Carcass::Hide();
 
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(250, 250, 250));
+	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 	SelectObject(hdc, PenR);	//сделаем перо активным
 
 	Rectangle(hdc, X1 + 2 * coeff, Y1 - 12 * coeff, X1 + 6 * coeff, Y1 - 8 * coeff);

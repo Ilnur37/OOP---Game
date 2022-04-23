@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArmorPiercing.cpp" />
     <ClCompile Include="BattleShip.cpp" />
     <ClCompile Include="Boat.cpp" />
     <ClCompile Include="Carcass.cpp" />
+    <ClCompile Include="Cumulative.cpp" />
+    <ClCompile Include="Fragmentation.cpp" />
     <ClCompile Include="GetConlWin.cpp" />
     <ClCompile Include="Liner.cpp" />
     <ClCompile Include="Location.cpp" />
@@ -152,9 +155,12 @@
     <ClCompile Include="SuperBatShip.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArmorPiercing.h" />
     <ClInclude Include="BattleShip.h" />
     <ClInclude Include="Boat.h" />
     <ClInclude Include="Carcass.h" />
+    <ClInclude Include="Cumulative.h" />
+    <ClInclude Include="Fragmentation.h" />
     <ClInclude Include="GetConlWin.h" />
     <ClInclude Include="Liner.h" />
     <ClInclude Include="Location.h" />

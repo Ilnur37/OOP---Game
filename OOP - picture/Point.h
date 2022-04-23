@@ -1,6 +1,7 @@
 #pragma once
 #include "Location.h"
 #include <mutex>
+#include <cmath>
 #include <thread>
 
 class Point : public Location

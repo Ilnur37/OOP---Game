@@ -7,6 +7,7 @@ extern HDC hdc2;
 extern HDC hdc3;
 extern HDC hdc4;
 extern HDC hdc5;
+extern HDC hdc6;
 
 // Макрос для проверки состояния клавиатуры – из ШАБЛОНА
 #define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
