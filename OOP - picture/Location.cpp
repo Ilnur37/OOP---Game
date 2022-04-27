@@ -21,3 +21,9 @@ int Location::GetX1() { return X1; }
 int Location::GetY1() { return Y1; }
 
 int Location::GetCoeff() { return coeff; }
+
+int Location::GetHealth() { return HealthPoint; }
+
+int Location::GetArmor() { return Armor; }
+
+void Location::SetHealth(int point) { this->HealthPoint = point; }

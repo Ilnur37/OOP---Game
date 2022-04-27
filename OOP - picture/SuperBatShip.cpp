@@ -2,6 +2,7 @@
 
 SuperBatShip::SuperBatShip(int X1, int Y1, int coeff) : BattleShip(X1, Y1, coeff)
 {
+	this->Armor = 7;
 }
 
 SuperBatShip::~SuperBatShip()

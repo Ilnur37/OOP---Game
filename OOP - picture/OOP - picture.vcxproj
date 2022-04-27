@@ -150,7 +150,6 @@
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="MegaBatShip.cpp" />
     <ClCompile Include="OOP - picture.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="SuperBatShip.cpp" />
   </ItemGroup>
@@ -165,7 +164,6 @@
     <ClInclude Include="Liner.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="MegaBatShip.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="SuperBatShip.h" />
   </ItemGroup>

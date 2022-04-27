@@ -4,7 +4,7 @@
 class Fragmentation : public Cumulative
 {
 public:
-	void ShootFragmFromLeft();
-	void ShootFragmFromRight();
+	void ShootFragmFromLeft(bool& End);
+	void ShootFragmFromRight(bool& End);
 	void CrushFragm(int x, int y);
 };

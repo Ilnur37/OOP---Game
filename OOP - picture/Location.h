@@ -8,14 +8,14 @@ extern HDC hdc3;
 extern HDC hdc4;
 extern HDC hdc5;
 extern HDC hdc6;
-
+extern HDC hdc7;
 // Макрос для проверки состояния клавиатуры – из ШАБЛОНА
 #define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 
 class Location
 {
 protected:
-	int X1, Y1, coeff;
+	int X1, Y1, coeff, HealthPoint, Armor;
 public:
 	Location();
 	Location(int X1, int Y1, int coeff);
@@ -24,4 +24,7 @@ public:
 	int GetX1();
 	int GetY1();
 	int GetCoeff();
+	int GetHealth();
+	int GetArmor();
+	void SetHealth(int point);
 };

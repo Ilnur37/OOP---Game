@@ -78,3 +78,85 @@ void Point::Drag1()
 		}
 	}
 }
+
+void Point::Gamer1(Point* object1, bool& End)
+{
+	int FigX1, FigY1;   //новые координаты фигуры
+
+	FigX1 = object1->GetX1();    //получаем начальное положение фигуры
+	FigY1 = object1->GetY1();
+
+	while (!End)	//бесконечный цикл буксировки фигуры
+	{
+		if (KEY_DOWN(0x41)) //стрелка влево  37
+		{
+			FigX1 -= 5;
+			object1->MoveTo(FigX1, FigY1);
+			Sleep(5);
+		}
+
+		if (KEY_DOWN(0x44)) //стрелка вправо  39
+		{
+			FigX1 += 5;
+			object1->MoveTo(FigX1, FigY1);
+			Sleep(5);
+		}
+
+		if (KEY_DOWN(0x53)) //стрелка вниз  40
+		{
+			FigY1 += 5;
+			object1->MoveTo(FigX1, FigY1);
+			Sleep(5);
+
+		}
+
+		if (KEY_DOWN(0x57)) //стрелка вверх  38
+		{
+			FigY1 -= 5;
+			object1->MoveTo(FigX1, FigY1);
+			Sleep(5);
+		}
+	}
+}
+
+void Point::Gamer2(Point* object2, bool& End)
+{
+	int FigX2, FigY2;   //новые координаты фигур
+	bool flag = 0;
+
+	FigX2 = object2->GetX1();    //получаем начальное положение фигуры
+	FigY2 = object2->GetY1();
+
+	while (!End)	//бесконечный цикл буксировки фигуры
+	{
+		//направление движения объекта
+
+		if (KEY_DOWN(VK_LEFT)) //стрелка влево  37
+		{
+			FigX2 -= 5;
+			object2->MoveTo(FigX2, FigY2);
+			Sleep(5);
+		}
+
+		if (KEY_DOWN(VK_RIGHT)) //стрелка вправо  39
+		{
+			FigX2 += 5;
+			object2->MoveTo(FigX2, FigY2);
+			Sleep(5);
+		}
+
+		if (KEY_DOWN(VK_DOWN)) //стрелка вниз  40
+		{
+			FigY2 += 5;
+			object2->MoveTo(FigX2, FigY2);
+			Sleep(5);
+		}
+
+		if (KEY_DOWN(VK_UP)) //стрелка вверх  38
+		{
+			FigY2 -= 5;
+			object2->MoveTo(FigX2, FigY2);
+			Sleep(5);
+		}
+	}
+}

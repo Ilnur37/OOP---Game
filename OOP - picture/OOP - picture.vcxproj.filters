@@ -42,9 +42,6 @@
     <ClCompile Include="SuperBatShip.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="MegaBatShip.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -81,9 +78,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SuperBatShip.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MegaBatShip.h">
