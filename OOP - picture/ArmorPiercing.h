@@ -6,8 +6,12 @@ extern std::vector <Point*> vector_of_objects;
 
 class ArmorPiercing : public Point
 {
+protected:
+	int damage;
 public:
-	void ShootApFromLeft(bool& End);
-	void ShootApFromRight(bool& End);
-	void CrushAP(Point* object, int x, int y, bool& End, bool placeHP);
+	ArmorPiercing();
+	int GetDamage();
+	void ShootApFromLeft(int& borders, bool& End);
+	void ShootApFromRight(int& borders, bool& End);
+	void Crush(Point* object, int x, int y, bool& End, bool placeHP);
 };

@@ -4,6 +4,7 @@ BattleShip::BattleShip(int X1, int Y1, int coeff) : Carcass(X1, Y1, coeff)
 {
 	this->HealthPoint = 150;
 	this->Armor = 0;
+	this->Speed = 7;
 }
 
 BattleShip::~BattleShip()

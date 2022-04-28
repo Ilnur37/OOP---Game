@@ -2,7 +2,14 @@
 
 std::mutex mtx3;
 
-void ArmorPiercing::ShootApFromLeft(bool& End)
+ArmorPiercing::ArmorPiercing()
+{
+	this->damage = 50;
+}
+
+int ArmorPiercing::GetDamage() { return damage; }
+
+void ArmorPiercing::ShootApFromLeft(int& borders, bool& End)
 {
 	Sleep(10);
 	HPEN PenR11 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
@@ -11,12 +18,16 @@ void ArmorPiercing::ShootApFromLeft(bool& End)
 	SelectObject(hdc6, hBrush);	//сделаем перо активным
 	while (!End) 	//бесконечный цикл буксировки фигуры
 	{
+		bool flag;
 		Rectangle(hdc6, 1730, 40, 1730 + vector_of_objects[1]->GetHealth(), 80);
 		if (KEY_DOWN(VK_TAB)) {
 			int a1 = vector_of_objects[0]->GetX1() + 26.5 * vector_of_objects[0]->GetCoeff();
 			int b1 = vector_of_objects[0]->GetY1() - 10 * abs(vector_of_objects[0]->GetCoeff());
-			bool flag = 0;
+			static int countShoot = 0;
+			flag = 0;
 
+			countShoot++;
+			if ((countShoot > 2) && (countShoot % 3 == 0)) borders += 30;
 			while (a1 < 1850) {
 				Sleep(1);
 				SelectObject(hdc2, PenR11);	//сделаем перо активным
@@ -35,7 +46,7 @@ void ArmorPiercing::ShootApFromLeft(bool& End)
 						((a1 + 20 > tempX1 + 13 * tempC1) && (a1 < tempX1 + 3 * tempC1) &&
 						(b1 < tempY1 + 8 * tempC1) && (b1 + 7 > tempY1 + 18 * tempC1)))
 					{
-						CrushAP(vector_of_objects[i], tempX1 + 9 * tempC1, tempY1 - 9 * abs(tempC1), End, 0);
+						Crush(vector_of_objects[i], tempX1 + 9 * tempC1, tempY1 - 9 * abs(tempC1), End, 0);
 						flag = 1;
 					}
 				}
@@ -50,7 +61,7 @@ void ArmorPiercing::ShootApFromLeft(bool& End)
 	Sleep(10);
 }
 
-void ArmorPiercing::ShootApFromRight(bool& End)
+void ArmorPiercing::ShootApFromRight(int& borders, bool& End)
 {
 	HPEN PenR22 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
 	HPEN PenW22 = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
@@ -58,12 +69,16 @@ void ArmorPiercing::ShootApFromRight(bool& End)
 	SelectObject(hdc6, hBrush);	//сделаем перо активным
 	while (!End) 	//бесконечный цикл буксировки фигуры
 	{
+		bool flag;
 		Rectangle(hdc6, 40, 40, 40 + vector_of_objects[0]->GetHealth(), 80);
 		if (KEY_DOWN(VK_SHIFT)) {
 			int a2 = vector_of_objects[1]->GetX1() + 29.5 * vector_of_objects[1]->GetCoeff();
 			int b2 = vector_of_objects[1]->GetY1() - 10 * abs(vector_of_objects[1]->GetCoeff());
-			bool flag = 0;
+			static int countShoot = 0;
+			flag = 0;
 
+			countShoot++;
+			if ((countShoot > 2) && (countShoot % 3 == 0)) borders += 30;
 			while (a2 > 100) {
 				Sleep(1);
 				SelectObject(hdc3, PenR22);	//сделаем перо активным
@@ -82,7 +97,7 @@ void ArmorPiercing::ShootApFromRight(bool& End)
 						((a2 < tempX2 + 13 * tempC2) && (a2 + 20 > tempX2 + 3 * tempC2) &&
 						(b2 < tempY2 - 8 * tempC2) && (b2 + 7 > tempY2 - 18 * tempC2)))
 					{
-						CrushAP(vector_of_objects[i], tempX2 + 9 * tempC2, tempY2 - 9 * abs(tempC2), End, 1);
+						Crush(vector_of_objects[i], tempX2 + 9 * tempC2, tempY2 - 9 * abs(tempC2), End, 1);
 						flag = 1;
 					}
 				}
@@ -97,7 +112,7 @@ void ArmorPiercing::ShootApFromRight(bool& End)
 	Sleep(10);
 }
 
-void ArmorPiercing::CrushAP(Point* object, int x, int y, bool& End, bool placeHP)
+void ArmorPiercing::Crush(Point* object, int x, int y, bool& End, bool placeHP)
 {
 	mtx3.lock();
 	int place;
@@ -112,10 +127,11 @@ void ArmorPiercing::CrushAP(Point* object, int x, int y, bool& End, bool placeHP
 	SelectObject(hdc7, hBrush3);	//сделаем перо активным
 	Rectangle(hdc7, place, 40, place + object->GetHealth(), 80);
 
-	object->SetHealth(object->GetHealth() - 50 + object->GetArmor());
-
-	SelectObject(hdc7, hBrush);	//сделаем перо активным
-	Rectangle(hdc7, place, 40, place + object->GetHealth(), 80);
+	object->SetHealth(object->GetHealth() - GetDamage() + object->GetArmor());
+	if (object->GetHealth() > 0) {
+		SelectObject(hdc7, hBrush);	//сделаем перо активным
+		Rectangle(hdc7, place, 40, place + object->GetHealth(), 80);
+	} else Rectangle(hdc7, place, 40, place, 80);
 
 	SelectObject(hdc4, hBrush1); //делаем кисть активной
 	for (int i = 10; i <= 40; i += 10) {

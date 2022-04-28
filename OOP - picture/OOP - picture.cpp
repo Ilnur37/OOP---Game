@@ -3,8 +3,6 @@
 #include <conio.h>
 #include "GetConlWin.h"
 
-#include "Liner.h"
-#include "Boat.h"
 #include "MegaBatShip.h"
 #include "Fragmentation.h"
 #define DEBUG 3
@@ -18,6 +16,7 @@ HDC hdc4;
 HDC hdc5;
 HDC hdc6;
 HDC hdc7;
+HDC hdc8;
 
 vector <Point*> vector_of_objects;
 
@@ -40,6 +39,7 @@ int main()
 		hdc5 = GetWindowDC(hwnd);
 		hdc6 = GetWindowDC(hwnd);
 		hdc7 = GetWindowDC(hwnd);
+		hdc8 = GetWindowDC(hwnd);
 
 		//если контекст существует - можем работать
 		if (hdc != 0)
@@ -92,16 +92,12 @@ int main()
 
 			SuperBatShip ASuper(200, 500, 8);
 			MegaBatShip AMega(1600, 500, -8);
-			/*BattleShip ABattleShip(1600, 500, 10);
-			Liner Aliner(1600, 300, 8);
-			Boat Aboat(1600, 700, 8);
-			Boat Bboat(1200, 700, 8);*/
 
 			Point p;
 			ArmorPiercing ap;
 			Cumulative cum;
 			Fragmentation fr;
-
+			int bord = 0;
 			vector_of_objects.push_back(&ASuper);
 			vector_of_objects.push_back(&AMega);
 			/*vector_of_objects.push_back(&ABattleShip);
@@ -112,27 +108,25 @@ int main()
 			while (1)
 				if (KEY_DOWN(49))   //цифра 1
 					break;
-			HPEN Pen = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
-			SelectObject(hdc, Pen);	//сделаем перо активным
+			HPEN Pen5 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
+			SelectObject(hdc, Pen5);	//сделаем перо активным
 			Rectangle(hdc, 0, 0, 1980, 1080);
-			DeleteObject(Pen);
+			DeleteObject(Pen5);
 			ASuper.Show();
 			AMega.Show();
-			cout << ASuper.GetHealth() << "  " << AMega.GetHealth();;
 
 			while (1)
 				if (KEY_DOWN(50))   //цифра 2
 					break;
-			thread T1(&Point::Gamer1, p, vector_of_objects[0], ref(EndOfGame));
-			thread T2(&ArmorPiercing::ShootApFromLeft, ap, ref(EndOfGame));
-			thread T3(&ArmorPiercing::ShootApFromRight, ap, ref(EndOfGame));
-
+			thread T1(&Point::Gamer1, p, vector_of_objects[0], ref(bord), ref(EndOfGame));
+			thread T2(&ArmorPiercing::ShootApFromLeft, ap, ref(bord), ref(EndOfGame));
+			thread T3(&ArmorPiercing::ShootApFromRight, ap, ref(bord), ref(EndOfGame));
 			//thread T2(&Cumulative::ShootCumFromLeft, cum, ref(EndOfGame));
 			//thread T3(&Cumulative::ShootCumFromRight, cum, ref(EndOfGame));
 			
 			//thread T2(&Fragmentation::ShootFragmFromLeft, fr, ref(EndOfGame));
 			//thread T3(&Fragmentation::ShootFragmFromRight, fr, ref(EndOfGame));
-			p.Gamer2(vector_of_objects[1], EndOfGame);
+			p.Gamer2(vector_of_objects[1], bord, EndOfGame);
 			T1.join();
 			T2.join();
 			T3.join();

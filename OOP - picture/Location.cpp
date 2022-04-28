@@ -26,4 +26,6 @@ int Location::GetHealth() { return HealthPoint; }
 
 int Location::GetArmor() { return Armor; }
 
+int Location::GetSpeed() { return Speed; }
+
 void Location::SetHealth(int point) { this->HealthPoint = point; }

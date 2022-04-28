@@ -3,6 +3,7 @@
 MegaBatShip::MegaBatShip(int X1, int Y1, int coeff) : SuperBatShip(X1, Y1, coeff)
 {
 	this->Armor = 15;
+	this->Speed = 3;
 }
 
 MegaBatShip::~MegaBatShip()
