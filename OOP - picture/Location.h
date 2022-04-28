@@ -15,6 +15,7 @@ extern HDC hdc7;
 class Location
 {
 protected:
+	//Координаты корабля, коэф. размера, кол-во здоровья, броня
 	int X1, Y1, coeff, HealthPoint, Armor;
 public:
 	Location();

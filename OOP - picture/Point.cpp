@@ -10,13 +10,13 @@ Point::Point(int X1, int Y1, int coeff) : Location(X1, Y1, coeff)
 {
 }
 
-Point::~Point()
-{
-}
-
 void Point::Show()
 {
 	SetPixel(hdc, X1, Y1, RGB(255, 0, 0));
+}
+
+Point::~Point()
+{
 }
 
 void Point::Hide()

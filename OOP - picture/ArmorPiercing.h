@@ -9,5 +9,5 @@ class ArmorPiercing : public Point
 public:
 	void ShootApFromLeft(bool& End);
 	void ShootApFromRight(bool& End);
-	void CrushAP(Point* object, int x, int y, bool& End);
+	void CrushAP(Point* object, int x, int y, bool& End, bool placeHP);
 };

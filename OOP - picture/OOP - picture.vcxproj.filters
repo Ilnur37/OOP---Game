@@ -33,12 +33,6 @@
     <ClCompile Include="BattleShip.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Liner.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Boat.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="SuperBatShip.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -69,12 +63,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="BattleShip.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Liner.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Boat.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SuperBatShip.h">

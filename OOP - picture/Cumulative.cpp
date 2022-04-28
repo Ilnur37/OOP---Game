@@ -44,7 +44,7 @@ void Cumulative::ShootCumFromLeft(bool& End)
 						SelectObject(hdc6, hBrush);	//сделаем перо активным
 						Rectangle(hdc6, 1730, 40, 1730 + vector_of_objects[i]->GetHealth(), 80);
 
-						CrushAP(vector_of_objects[i], tempX1 + 9 * tempC1, tempY1 - 9 * abs(tempC1), End);
+						//CrushCum(vector_of_objects[i], tempX1 + 9 * tempC1, tempY1 - 9 * abs(tempC1), End);
 						flag = 1;
 					}
 				}
@@ -103,7 +103,7 @@ void Cumulative::ShootCumFromRight(bool& End)
 						SelectObject(hdc7, hBrush);	//сделаем перо активным
 						Rectangle(hdc7, 40, 40, 40 + vector_of_objects[i]->GetHealth(), 80);
 
-						CrushAP(vector_of_objects[i], tempX2 + 9 * tempC2, tempY2 - 9 * abs(tempC2), End);
+						//CrushAP(vector_of_objects[i], tempX2 + 9 * tempC2, tempY2 - 9 * abs(tempC2), End);
 						flag = 1;
 					}
 				}
