@@ -163,6 +163,9 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="SuperBatShip.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagram.cd" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

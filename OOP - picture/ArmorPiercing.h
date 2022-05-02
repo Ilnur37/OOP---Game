@@ -11,7 +11,7 @@ protected:
 public:
 	ArmorPiercing();
 	int GetDamage();
-	void ShootApFromLeft(int& borders, bool& End);
-	void ShootApFromRight(int& borders, bool& End);
+	void ShootFromLeft(int& borders, bool& End);
+	void ShootFromRight(int& borders, bool& End);
 	void Crush(Point* object, int x, int y, bool& End, bool placeHP);
 };

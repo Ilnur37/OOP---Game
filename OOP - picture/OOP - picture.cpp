@@ -4,7 +4,7 @@
 #include "GetConlWin.h"
 
 #include "MegaBatShip.h"
-#include "Fragmentation.h"
+#include "ArmorPiercing.h"
 #define DEBUG 3
 #define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 using namespace std;
@@ -15,7 +15,7 @@ HDC hdc3;
 HDC hdc4;
 HDC hdc5;
 HDC hdc6;
-HDC hdc7;
+//HDC hdc7;
 HDC hdc8;
 
 vector <Point*> vector_of_objects;
@@ -38,7 +38,7 @@ int main()
 		hdc4 = GetWindowDC(hwnd);
 		hdc5 = GetWindowDC(hwnd);
 		hdc6 = GetWindowDC(hwnd);
-		hdc7 = GetWindowDC(hwnd);
+		//hdc7 = GetWindowDC(hwnd);
 		hdc8 = GetWindowDC(hwnd);
 
 		//если контекст существует - можем работать
@@ -95,9 +95,9 @@ int main()
 
 			Point p;
 			ArmorPiercing ap;
-			Cumulative cum;
-			Fragmentation fr;
-			int bord = 0;
+			//Cumulative cum;
+			//Fragmentation fr;
+			int bord = 80;
 			vector_of_objects.push_back(&ASuper);
 			vector_of_objects.push_back(&AMega);
 			/*vector_of_objects.push_back(&ABattleShip);
@@ -119,8 +119,8 @@ int main()
 				if (KEY_DOWN(50))   //цифра 2
 					break;
 			thread T1(&Point::Gamer1, p, vector_of_objects[0], ref(bord), ref(EndOfGame));
-			thread T2(&ArmorPiercing::ShootApFromLeft, ap, ref(bord), ref(EndOfGame));
-			thread T3(&ArmorPiercing::ShootApFromRight, ap, ref(bord), ref(EndOfGame));
+			thread T2(&ArmorPiercing::ShootFromLeft, ap, ref(bord), ref(EndOfGame));
+			thread T3(&ArmorPiercing::ShootFromRight, ap, ref(bord), ref(EndOfGame));
 			//thread T2(&Cumulative::ShootCumFromLeft, cum, ref(EndOfGame));
 			//thread T3(&Cumulative::ShootCumFromRight, cum, ref(EndOfGame));
 			

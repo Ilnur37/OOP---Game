@@ -35,18 +35,13 @@ void Point::MoveTo(int X1, int Y1)
 
 void Point::Gamer1(Point* object1, int& borders, bool& End)
 {
-	HBRUSH hBrush = CreateSolidBrush(RGB(255, 222, 173));
-	SelectObject(hdc8, hBrush);	//сделаем перо активным
-
 	int FigX1, FigY1;   //новые координаты фигуры
 	int speed1;
-	FigX1 = object1->GetX1();    //получаем начальное положение фигуры
+	FigX1 = object1->GetX1(); 
 	FigY1 = object1->GetY1();
 	speed1 = object1->GetSpeed();
 	while (!End)	//бесконечный цикл буксировки фигуры
 	{
-		Rectangle(hdc8, 0, 0, 1980, 0 + borders);
-		Rectangle(hdc8, 0, 1080 - borders, 1980, 1080);
 		if (KEY_DOWN(0x41)) //стрелка влево  37
 		{
 			FigX1 -= speed1;
@@ -77,7 +72,7 @@ void Point::Gamer1(Point* object1, int& borders, bool& End)
 			Sleep(5);
 		}
 		if (FigY1 > 1080 - borders) FigY1 = 1080 - borders;
-		if (FigY1 - 180 < 0 + borders) FigY1 = 180 + borders;
+		if (FigY1 - 165 < 0 + borders) FigY1 = 165 + borders;
 	}
 }
 

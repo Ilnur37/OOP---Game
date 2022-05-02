@@ -14,8 +14,8 @@ void SuperBatShip::Show()
 {
 	BattleShip::Show();
 
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-	SelectObject(hdc, PenR);	//сделаем перо активным
+	//HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+	//SelectObject(hdc, PenR);	//сделаем перо активным
 
 	MoveToEx(hdc, X1 + 2 * coeff, Y1 - 11 * abs(coeff), NULL);
 	LineTo(hdc, X1 - 2 * coeff, Y1 - 13 * abs(coeff));
@@ -31,15 +31,15 @@ void SuperBatShip::Show()
 	MoveToEx(hdc, X1 + 19 * coeff, Y1 - 17 * abs(coeff), NULL);
 	LineTo(hdc, X1 + 19 * coeff, Y1 - 16.5 * abs(coeff));
 
-	DeleteObject(PenR);
+	//DeleteObject(PenR);
 }
 
 void SuperBatShip::Hide()
 {
 	BattleShip::Hide();
 
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
-	SelectObject(hdc, PenR);	//сделаем перо активным
+	//HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
+	//SelectObject(hdc, PenR);	//сделаем перо активным
 
 	MoveToEx(hdc, X1 + 2 * coeff, Y1 - 11 * abs(coeff), NULL);
 	LineTo(hdc, X1 - 2 * coeff, Y1 - 13 * abs(coeff));
@@ -55,5 +55,5 @@ void SuperBatShip::Hide()
 	MoveToEx(hdc, X1 + 19 * coeff, Y1 - 17 * abs(coeff), NULL);
 	LineTo(hdc, X1 + 19 * coeff, Y1 - 16.5 * abs(coeff));
 
-	DeleteObject(PenR);
+	//DeleteObject(PenR);
 }

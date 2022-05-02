@@ -15,8 +15,8 @@ void BattleShip::Show()
 {
 	Carcass::Show();
 
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-	SelectObject(hdc, PenR);	//сделаем перо активным
+	//HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+	//SelectObject(hdc, PenR);	//сделаем перо активным
 
 	Rectangle(hdc, X1 + 2 * coeff, Y1 - 12 * abs(coeff), X1 + 6 * coeff, Y1 - 8 * abs(coeff));
 	Rectangle(hdc, X1 + 6 * coeff, Y1 - 18 * abs(coeff), X1 + 10 * coeff, Y1 - 8 * abs(coeff));
@@ -30,15 +30,15 @@ void BattleShip::Show()
 	Ellipse(hdc, X1 + 12 * coeff, Y1 - 6 * abs(coeff), X1 + 16 * coeff, Y1 - 2 * abs(coeff));
 
 	// ”ничтожим нами созданные объекты  
-	DeleteObject(PenR);
+	//DeleteObject(PenR);
 }
 
 void BattleShip::Hide()
 {
 	Carcass::Hide();
 
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
-	SelectObject(hdc, PenR);	//сделаем перо активным
+	//HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
+	//SelectObject(hdc, PenR);	//сделаем перо активным
 
 	Rectangle(hdc, X1 + 2 * coeff, Y1 - 12 * abs(coeff), X1 + 6 * coeff, Y1 - 8 * abs(coeff));
 	Rectangle(hdc, X1 + 6 * coeff, Y1 - 18 * abs(coeff), X1 + 10 * coeff, Y1 - 8 * abs(coeff));
@@ -52,5 +52,5 @@ void BattleShip::Hide()
 	Ellipse(hdc, X1 + 12 * coeff, Y1 - 6 * abs(coeff), X1 + 16 * coeff, Y1 - 2 * abs(coeff));
 
 	// ”ничтожим нами созданные объекты  
-	DeleteObject(PenR);
+	//DeleteObject(PenR);
 }

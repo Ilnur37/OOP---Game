@@ -24,14 +24,14 @@ void Carcass::Show()
 	LineTo(hdc, X1, Y1);
 
 	// Уничтожим нами созданные объекты  
-	DeleteObject(PenR);
+	//DeleteObject(PenR);
 }
 
 void Carcass::Hide()
 {
 	// Зададим перо и цвет пера - красный
-	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
-	SelectObject(hdc, PenR);	//сделаем перо активным
+	HPEN PenW = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
+	SelectObject(hdc, PenW);	//сделаем перо активным
 
 	MoveToEx(hdc, X1, Y1, NULL);
 	LineTo(hdc, X1 + 18 * coeff, Y1);
@@ -43,5 +43,5 @@ void Carcass::Hide()
 	LineTo(hdc, X1, Y1);
 
 	// Уничтожим нами созданные объекты  
-	DeleteObject(PenR);
+	//DeleteObject(PenW);
 }
