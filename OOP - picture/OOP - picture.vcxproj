@@ -144,11 +144,13 @@
     <ClCompile Include="Carcass.cpp" />
     <ClCompile Include="Cumulative.cpp" />
     <ClCompile Include="Fragmentation.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GetConlWin.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="MegaBatShip.cpp" />
     <ClCompile Include="OOP - picture.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="SuperBatShip.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,14 +159,16 @@
     <ClInclude Include="Carcass.h" />
     <ClInclude Include="Cumulative.h" />
     <ClInclude Include="Fragmentation.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GetConlWin.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="MegaBatShip.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Projectile.h" />
     <ClInclude Include="SuperBatShip.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Diagram.cd" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

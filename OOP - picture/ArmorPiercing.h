@@ -1,17 +1,10 @@
 #pragma once
-#include <vector>
-#include "Point.h"
+#include "Projectile.h"
 
-extern std::vector <Point*> vector_of_objects; 
-
-class ArmorPiercing : public Point
+class ArmorPiercing : public Projectile
 {
-protected:
-	int damage;
 public:
 	ArmorPiercing();
-	int GetDamage();
-	void ShootFromLeft(int& borders, bool& End);
-	void ShootFromRight(int& borders, bool& End);
-	void Crush(Point* object, int x, int y, bool& End, bool placeHP);
+	void ShootFromLeft(int& borders, bool& End) override;
+	void ShootFromRight(int& borders, bool& End) override;
 };

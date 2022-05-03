@@ -22,9 +22,6 @@ void Carcass::Show()
 	LineTo(hdc, X1 - 4 * coeff, Y1 - 8 * abs(coeff));
 	MoveToEx(hdc, X1 - 4 * coeff, Y1 - 8 * abs(coeff), NULL);
 	LineTo(hdc, X1, Y1);
-
-	// ”ничтожим нами созданные объекты  
-	//DeleteObject(PenR);
 }
 
 void Carcass::Hide()
@@ -41,7 +38,4 @@ void Carcass::Hide()
 	LineTo(hdc, X1 - 4 * coeff, Y1 - 8 * abs(coeff));
 	MoveToEx(hdc, X1 - 4 * coeff, Y1 - 8 * abs(coeff), NULL);
 	LineTo(hdc, X1, Y1);
-
-	// ”ничтожим нами созданные объекты  
-	//DeleteObject(PenW);
 }

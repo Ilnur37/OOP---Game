@@ -3,8 +3,11 @@
 #include <conio.h>
 #include "GetConlWin.h"
 
+#include "Game.h"
 #include "MegaBatShip.h"
 #include "ArmorPiercing.h"
+#include "Cumulative.h"
+#include "Fragmentation.h"
 #define DEBUG 3
 #define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 using namespace std;
@@ -93,17 +96,13 @@ int main()
 			SuperBatShip ASuper(200, 500, 8);
 			MegaBatShip AMega(1600, 500, -8);
 
-			Point p;
+			Game g;
 			ArmorPiercing ap;
-			//Cumulative cum;
-			//Fragmentation fr;
+			Cumulative cum;
+			Fragmentation fr;
 			int bord = 80;
 			vector_of_objects.push_back(&ASuper);
 			vector_of_objects.push_back(&AMega);
-			/*vector_of_objects.push_back(&ABattleShip);
-			vector_of_objects.push_back(&Aliner);
-			vector_of_objects.push_back(&Aboat);
-			vector_of_objects.push_back(&Bboat);*/
 
 			while (1)
 				if (KEY_DOWN(49))   //цифра 1
@@ -118,15 +117,15 @@ int main()
 			while (1)
 				if (KEY_DOWN(50))   //цифра 2
 					break;
-			thread T1(&Point::Gamer1, p, vector_of_objects[0], ref(bord), ref(EndOfGame));
-			thread T2(&ArmorPiercing::ShootFromLeft, ap, ref(bord), ref(EndOfGame));
-			thread T3(&ArmorPiercing::ShootFromRight, ap, ref(bord), ref(EndOfGame));
-			//thread T2(&Cumulative::ShootCumFromLeft, cum, ref(EndOfGame));
-			//thread T3(&Cumulative::ShootCumFromRight, cum, ref(EndOfGame));
+			thread T1(&Game::Gamer1, g, vector_of_objects[0], ref(bord), ref(EndOfGame));
+			//thread T2(&Game::Shoot1, g, &ap, ref(bord), ref(EndOfGame));
+			//thread T3(&Game::Shoot2, g, &ap, ref(bord), ref(EndOfGame));
+			thread T2(&Game::Shoot1, g, &cum, ref(bord), ref(EndOfGame));
+			thread T3(&Game::Shoot2, g, &cum, ref(bord), ref(EndOfGame));
 			
-			//thread T2(&Fragmentation::ShootFragmFromLeft, fr, ref(EndOfGame));
-			//thread T3(&Fragmentation::ShootFragmFromRight, fr, ref(EndOfGame));
-			p.Gamer2(vector_of_objects[1], bord, EndOfGame);
+			//thread T2(&Game::Shoot1, g, &fr, ref(bord), ref(EndOfGame));
+			//thread T3(&Game::Shoot2, g, &fr, ref(bord), ref(EndOfGame));
+			g.Gamer2(vector_of_objects[1], bord, EndOfGame);
 			T1.join();
 			T2.join();
 			T3.join();

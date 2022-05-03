@@ -1,10 +1,10 @@
-//#pragma once
-//#include "Cumulative.h"
-//
-//class Fragmentation : public Cumulative
-//{
-//public:
-//	void ShootFragmFromLeft(bool& End);
-//	void ShootFragmFromRight(bool& End);
-//	void CrushFragm(int x, int y);
-//};
+#pragma once
+#include "Projectile.h"
+
+class Fragmentation : public Projectile
+{
+public:
+	Fragmentation();
+	void ShootFromLeft(int& borders, bool& End) override;
+	void ShootFromRight(int& borders, bool& End) override;
+};

@@ -16,7 +16,4 @@ public:
 	virtual void Hide();
 
 	void MoveTo(int X1, int Y1);
-
-	void Gamer1(Point* object1, int& borders, bool& End);
-	void Gamer2(Point* object2, int& borders, bool& End);
 };
