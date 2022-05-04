@@ -22,6 +22,7 @@ HDC hdc6;
 HDC hdc8;
 
 vector <Point*> vector_of_objects;
+vector <Projectile*> vector_of_projectile;
 
 int main()
 {
@@ -47,14 +48,13 @@ int main()
 		//если контекст существует - можем работать
 		if (hdc != 0)
 		{
-
 			bool EndOfGame = 0;
-			BattleShip ABatle(100, 400, 8);
-			SuperBatShip ASuper(430, 400, 8);
-			MegaBatShip AMega(760, 400, 8);
-			BattleShip ABatle2(100, 400, -8);
-			SuperBatShip ASuper2(430, 400, -8);
-			MegaBatShip AMega2(760, 400, -8);
+			BattleShip ABatle(100, 500, 8);
+			SuperBatShip ASuper(430, 500, 8);
+			MegaBatShip AMega(760, 500, 8);
+			BattleShip ABatle2(100, 500, -8);
+			SuperBatShip ASuper2(430, 500, -8);
+			MegaBatShip AMega2(760, 500, -8);
 
 			Game g;
 			ArmorPiercing ap;
@@ -63,14 +63,17 @@ int main()
 			int bord = 80;
 			bool choose = 1;
 
+			while (1)
+				if (KEY_DOWN(VK_RETURN))
+					break;
 			HPEN Pen5 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
 			SelectObject(hdc, Pen5);	//сделаем перо активным
 			Rectangle(hdc, 0, 0, 1980, 1080);
 			cout << "\n\n\t\t\t\t\t\t Player 1, choose your ship";
 			cout << "\n\n\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
-			cout << "\t\t HealthPoint = 150" << "\t\t\t HealthPoint = 150" << "\t\t\t HealthPoint = 150\n";
-			cout << "\t\t Armor = 0" << "\t\t\t\t Armor = 7" << "\t\t\t\t Armor = 15\n";
-			cout << "\t\t Speed = 7" << "\t\t\t\t Speed = 5" << "\t\t\t\t Speed = 3\n";
+			cout << "\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150\n";
+			cout << "\t\t Armor\t\t = 0" << "\t\t\t Armor\t\t = 7" << "\t\t\t Armor\t\t = 15\n";
+			cout << "\t\t Speed\t\t = 7" << "\t\t\t Speed\t\t = 5" << "\t\t\t Speed\t\t = 3\n";
 			ABatle.Show();
 			ASuper.Show();
 			AMega.Show();
@@ -107,9 +110,9 @@ int main()
 			SetConsoleCursorPosition(hConsole, position);
 			cout << "\n\n\t\t\t\t\t\t Player 2, choose your ship";
 			cout << "\n\n\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
-			cout << "\t\t HealthPoint = 150" << "\t\t\t HealthPoint = 150" << "\t\t\t HealthPoint = 150\n";
-			cout << "\t\t Armor = 0" << "\t\t\t\t Armor = 7" << "\t\t\t\t Armor = 15\n";
-			cout << "\t\t Speed = 7" << "\t\t\t\t Speed = 5" << "\t\t\t\t Speed = 3\n";
+			cout << "\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150\n";
+			cout << "\t\t Armor\t\t = 0" << "\t\t\t Armor\t\t = 7" << "\t\t\t Armor\t\t = 15\n";
+			cout << "\t\t Speed\t\t = 7" << "\t\t\t Speed\t\t = 5" << "\t\t\t Speed\t\t = 3\n";
 			ABatle.Show();
 			ASuper.Show();
 			AMega.Show();
@@ -140,17 +143,76 @@ int main()
 			Sleep(1000);
 			Rectangle(hdc, 0, 0, 1980, 1080);
 
-			while (1)
-				if (KEY_DOWN(50))   //цифра 2
-					break;
-			thread T1(&Game::Gamer1, g, vector_of_objects[0], ref(bord), ref(EndOfGame));
-			//thread T2(&Game::Shoot1, g, &ap, ref(bord), ref(EndOfGame));
-			//thread T3(&Game::Shoot2, g, &ap, ref(bord), ref(EndOfGame));
-			thread T2(&Game::Shoot1, g, &cum, ref(bord), ref(EndOfGame));
-			thread T3(&Game::Shoot2, g, &cum, ref(bord), ref(EndOfGame));
+			cout << "\n\t\t\t\t\t\t Player 1, select projectile type ";
+			cout << "\n\n\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
+			cout << "\t\t Damage\t = 50" << "\t\t\t\t Damage\t = 62" << "\t\t\t\t Damage\t = 75\n";
+			cout << "\t\t Flight speed = 25" << "\t\t\t Flight speed = 20" << "\t\t\t Flight speed = 17\n";
+			while (choose)
+			{
+				if (KEY_DOWN(49))
+				{
+					vector_of_projectile.push_back(&ap);
+					choose = 0;
+				}
+
+				if (KEY_DOWN(50))
+				{
+					vector_of_projectile.push_back(&cum);
+					choose = 0;
+				}
+
+				if (KEY_DOWN(51))
+				{
+					vector_of_projectile.push_back(&fr);
+					choose = 0;
+				}
+			}
+			choose = 1;
+			SelectObject(hdc, Pen5);	//сделаем перо активным
+			Rectangle(hdc, 0, 0, 1980, 1080);
+			Sleep(1000);
+
+			cout << "\n\n\t\t\t\t\t\t Player 2, select projectile type ";
+			cout << "\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
+			cout << "\t\t Damage\t = 50" << "\t\t\t\t Damage\t = 62" << "\t\t\t\t Damage\t = 75\n";
+			cout << "\t\t Flight speed = 25" << "\t\t\t Flight speed = 20" << "\t\t\t Flight speed = 17\n";
+			while (choose)
+			{
+				if (KEY_DOWN(49))
+				{
+					vector_of_projectile.push_back(&ap);
+					choose = 0;
+				}
+
+				if (KEY_DOWN(50))
+				{
+					vector_of_projectile.push_back(&cum);
+					choose = 0;
+				}
+
+				if (KEY_DOWN(51))
+				{
+					vector_of_projectile.push_back(&fr);
+					choose = 0;
+				}
+			}
+			choose = 1;
+			SelectObject(hdc, Pen5);	//сделаем перо активным
+			Rectangle(hdc, 0, 0, 1980, 1080);
 			
-			//thread T2(&Game::Shoot1, g, &fr, ref(bord), ref(EndOfGame));
-			//thread T3(&Game::Shoot2, g, &fr, ref(bord), ref(EndOfGame));
+			while (1)
+				if (KEY_DOWN(VK_RETURN))
+					break;
+			SelectObject(hdc, Pen5);	//сделаем перо активным
+			Rectangle(hdc, 0, 0, 1980, 1080);
+			vector_of_objects[0]->MoveTo(300, 500);
+			vector_of_objects[1]->MoveTo(1500, 500);
+			vector_of_objects[0]->Show();
+			vector_of_objects[1]->Show();
+			Sleep(10);
+			thread T1(&Game::Gamer1, g, vector_of_objects[0], ref(bord), ref(EndOfGame));
+			thread T2(&Game::Shoot1, g, vector_of_projectile[0], ref(bord), ref(EndOfGame));
+			thread T3(&Game::Shoot2, g, vector_of_projectile[1], ref(bord), ref(EndOfGame));
 			g.Gamer2(vector_of_objects[1], bord, EndOfGame);
 			T1.join();
 			T2.join();
@@ -159,8 +221,6 @@ int main()
 			while (1)
 				if (KEY_DOWN(51))   //цифра 3
 					break;
-			//* * * * * * * *
-
 		}
 	}
 }

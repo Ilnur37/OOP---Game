@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ArmorPiercing" Collapsed="true">
-    <Position X="6.75" Y="2.75" Width="1.5" />
+    <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAQQAAAAAAAAAAAAA=</HashCode>
       <FileName>ArmorPiercing.h</FileName>
