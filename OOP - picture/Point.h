@@ -12,8 +12,8 @@ public:
 	Point(int X1, int Y1, int coeff);
 	~Point();
 
-	virtual void Show();
-	virtual void Hide();
+	virtual void Show();			//Показать объект
+	virtual void Hide();			//Скрыть объект
 
-	void MoveTo(int X1, int Y1);
+	void MoveTo(int X1, int Y1);	//Перемещение объекта
 };

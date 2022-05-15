@@ -1,6 +1,7 @@
 #pragma once
 #include "Carcass.h"
 
+//Класс корабля №1
 class BattleShip : public Carcass
 {
 public:

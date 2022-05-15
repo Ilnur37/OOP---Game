@@ -1,6 +1,7 @@
 #pragma once
 #include "Point.h"
 
+//Класс корпуса корабля
 class Carcass : public Point
 {
 public:

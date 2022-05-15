@@ -1,6 +1,7 @@
 #pragma once
 #include "SuperBatShip.h"
 
+//Класс корабля №3
 class MegaBatShip : public SuperBatShip
 {
 public:

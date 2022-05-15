@@ -1,20 +1,27 @@
 #include "Projectile.h"
 
-std::mutex mtx3;
+/* Мьютекс используется
+для блокировки одного из потоков
+в функции Crush */
+std::mutex mtx2;
 
 int Projectile::GetDamage() { return damage; }
 
+//Разрушение корабля
 void Projectile::Crush(Point* object, int x, int y, bool& End, bool placeHP)
 {
-	mtx3.lock();
+	mtx2.lock();
+
+	//место расположения на экране полосы здоровья
 	int place;
-	HBRUSH hBrush1 = CreateSolidBrush(RGB(255, 255, 0)); //задаём сплошную кисть
+
+	HBRUSH hBrush1 = CreateSolidBrush(RGB(255, 255, 0));		//задаём сплошную кисть
 	HBRUSH hBrush2 = CreateSolidBrush(RGB(255, 0, 0));
 	HBRUSH hBrush3 = CreateSolidBrush(RGB(255, 255, 255));
 	HPEN Pen = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
 	HPEN PenR = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
 
-	//Рассчет здоровья
+	//Изменение колличества здоровья корабля, в который попал снаряд
 	(placeHP) ? place = 40 : place = 1730;
 	SelectObject(hdc4, hBrush3);
 	Rectangle(hdc4, place, 40, place + object->GetHealth(), 80);
@@ -25,7 +32,7 @@ void Projectile::Crush(Point* object, int x, int y, bool& End, bool placeHP)
 	}
 	else Rectangle(hdc6, place, 40, place, 80);
 
-	//Взрыв
+	//Взрыв при простом попадании снаряда
 	SelectObject(hdc4, hBrush1); //делаем кисть активной
 	for (int i = 10; i <= 40; i += 10) {
 		Ellipse(hdc4, x - i / 2, y - i / 2, x + i / 2, y + i / 2);
@@ -40,7 +47,7 @@ void Projectile::Crush(Point* object, int x, int y, bool& End, bool placeHP)
 	SelectObject(hdc5, Pen);
 	Ellipse(hdc5, x - 50, y - 50, x + 50, y + 50);
 
-	//Большой взрыв
+	//Взрыв при полном уничтоженим корабля 
 	if (object->GetHealth() <= 0) {
 		End = 1;
 		SelectObject(hdc4, hBrush1);
@@ -90,5 +97,5 @@ void Projectile::Crush(Point* object, int x, int y, bool& End, bool placeHP)
 		DeleteObject(hBrush3);
 		DeleteObject(Pen);
 	}
-	mtx3.unlock();
+	mtx2.unlock();
 }
