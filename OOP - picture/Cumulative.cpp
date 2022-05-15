@@ -2,10 +2,10 @@
 
 Cumulative::Cumulative()
 {
-	this->damage = 62;		//урон, наносимый снарядом этого типа
+	this->damage = 62;		//ГіГ°Г®Г­, Г­Г Г­Г®Г±ГЁГ¬Г»Г© Г±Г­Г Г°ГїГ¤Г®Г¬ ГЅГІГ®ГЈГ® ГІГЁГЇГ 
 }
 
-//Выстрел из орудия первого игрока
+//Г‚Г»Г±ГІГ°ГҐГ« ГЁГ§ Г®Г°ГіГ¤ГЁГї ГЇГҐГ°ГўГ®ГЈГ® ГЁГЈГ°Г®ГЄГ 
 void Cumulative::ShootFromLeft(int& borders, bool& End)
 {
 	Sleep(10);
@@ -19,25 +19,25 @@ void Cumulative::ShootFromLeft(int& borders, bool& End)
 	Rectangle(hdc6, 1730, 40, 1730 + vector_of_objects[1]->GetHealth(), 80);
 	Rectangle(hdc6, 40, 40, 40 + vector_of_objects[0]->GetHealth(), 80);
 
-	//бесконечный цикл стрельбы
+	//ГЎГҐГ±ГЄГ®Г­ГҐГ·Г­Г»Г© Г¶ГЁГЄГ« Г±ГІГ°ГҐГ«ГјГЎГ»
 	while (!End)
 	{
-		bool flag;					//флаг для отслеживания поподания снаряда в корабль
+		bool flag;					//ГґГ«Г ГЈ Г¤Г«Гї Г®ГІГ±Г«ГҐГ¦ГЁГўГ Г­ГЁГї ГЇГ®ГЇГ®Г¤Г Г­ГЁГї Г±Г­Г Г°ГїГ¤Г  Гў ГЄГ®Г°Г ГЎГ«Гј
 		if (KEY_DOWN(VK_TAB)) {
 			flag = 0;
 
-			//получение координат снаряда
+			//ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ Г±Г­Г Г°ГїГ¤Г 
 			int a1 = vector_of_objects[0]->GetX1() + 26.5 * vector_of_objects[0]->GetCoeff();
 			int b1 = vector_of_objects[0]->GetY1() - 10 * abs(vector_of_objects[0]->GetCoeff());
 
-			/*Счетчик количества выстрелов
-			каждые 3 выстрела карта сужается*/
+			/*Г‘Г·ГҐГІГ·ГЁГЄ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГўГ»Г±ГІГ°ГҐГ«Г®Гў
+			ГЄГ Г¦Г¤Г»ГҐ 3 ГўГ»Г±ГІГ°ГҐГ«Г  ГЄГ Г°ГІГ  Г±ГіГ¦Г ГҐГІГ±Гї*/
 			static int countShoot = 0;
 			countShoot++;
 			if ((countShoot > 2) && (countShoot % 3 == 0)) borders += 30;
 
 			while (a1 < 1850) {
-				//Полет снаряда
+				//ГЏГ®Г«ГҐГІ Г±Г­Г Г°ГїГ¤Г 
 				Sleep(1);
 				SelectObject(hdc2, PenR11);
 				Rectangle(hdc2, a1, b1, a1 + 20, b1 + 10);
@@ -45,15 +45,15 @@ void Cumulative::ShootFromLeft(int& borders, bool& End)
 				SelectObject(hdc2, PenW11);
 				Rectangle(hdc2, a1, b1, a1 + 20, b1 + 10);
 
-				//Рисование границ карты
+				//ГђГЁГ±Г®ГўГ Г­ГЁГҐ ГЈГ°Г Г­ГЁГ¶ ГЄГ Г°ГІГ»
 				Rectangle(hdc8, 0, 0, 1980, 0 + borders);
 				Rectangle(hdc8, 0, 1080 - borders, 1980, 1080);
 
-				//Рисование шкалы здоровья
+				//ГђГЁГ±Г®ГўГ Г­ГЁГҐ ГёГЄГ Г«Г» Г§Г¤Г®Г°Г®ГўГјГї
 				if (vector_of_objects[1]->GetHealth() > 0) Rectangle(hdc6, 1730, 40, 1730 + vector_of_objects[1]->GetHealth(), 80);
 				if (vector_of_objects[0]->GetHealth() > 0) Rectangle(hdc6, 40, 40, 40 + vector_of_objects[0]->GetHealth(), 80);
 
-				//Проверка попадания снаряда в корабль
+				//ГЏГ°Г®ГўГҐГ°ГЄГ  ГЇГ®ГЇГ Г¤Г Г­ГЁГї Г±Г­Г Г°ГїГ¤Г  Гў ГЄГ®Г°Г ГЎГ«Гј
 				int tempC1 = vector_of_objects[1]->GetCoeff();
 				int tempX1 = vector_of_objects[1]->GetX1();
 				int tempY1 = vector_of_objects[1]->GetY1();
@@ -65,7 +65,7 @@ void Cumulative::ShootFromLeft(int& borders, bool& End)
 					Crush(vector_of_objects[1], tempX1 + 9 * tempC1, tempY1 - 9 * abs(tempC1), End, 0);
 					flag = 1;
 				}
-				if (flag) break;		//выход из цикла при попадании снаряда в корабль
+				if (flag) break;		//ГўГ»ГµГ®Г¤ ГЁГ§ Г¶ГЁГЄГ«Г  ГЇГ°ГЁ ГЇГ®ГЇГ Г¤Г Г­ГЁГЁ Г±Г­Г Г°ГїГ¤Г  Гў ГЄГ®Г°Г ГЎГ«Гј
 				a1 += 20;
 			}
 		}
@@ -77,7 +77,7 @@ void Cumulative::ShootFromLeft(int& borders, bool& End)
 	Sleep(10);
 }
 
-//Выстрел из орудия второго игрока
+//Г‚Г»Г±ГІГ°ГҐГ« ГЁГ§ Г®Г°ГіГ¤ГЁГї ГўГІГ®Г°Г®ГЈГ® ГЁГЈГ°Г®ГЄГ 
 void Cumulative::ShootFromRight(int& borders, bool& End)
 {
 	HPEN PenR22 = CreatePen(PS_SOLID, 3, RGB(255, 140, 0));
@@ -90,41 +90,41 @@ void Cumulative::ShootFromRight(int& borders, bool& End)
 	Rectangle(hdc6, 1730, 40, 1730 + vector_of_objects[1]->GetHealth(), 80);
 	Rectangle(hdc6, 40, 40, 40 + vector_of_objects[0]->GetHealth(), 80);
 
-	//бесконечный цикл стрельбы
+	//ГЎГҐГ±ГЄГ®Г­ГҐГ·Г­Г»Г© Г¶ГЁГЄГ« Г±ГІГ°ГҐГ«ГјГЎГ»
 	while (!End)
 	{
-		bool flag;						//флаг для отслеживания поподания снаряда в корабль
+		bool flag;						//ГґГ«Г ГЈ Г¤Г«Гї Г®ГІГ±Г«ГҐГ¦ГЁГўГ Г­ГЁГї ГЇГ®ГЇГ®Г¤Г Г­ГЁГї Г±Г­Г Г°ГїГ¤Г  Гў ГЄГ®Г°Г ГЎГ«Гј
 		if (KEY_DOWN(VK_SHIFT)) {
 			flag = 0;
 
-			//получение координат снаряда
+			//ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ Г±Г­Г Г°ГїГ¤Г 
 			int a2 = vector_of_objects[1]->GetX1() + 29.5 * vector_of_objects[1]->GetCoeff();
 			int b2 = vector_of_objects[1]->GetY1() - 10 * abs(vector_of_objects[1]->GetCoeff());
 			
-			/*Счетчик количества выстрелов
-			каждые 3 выстрела карта сужается*/
+			/*Г‘Г·ГҐГІГ·ГЁГЄ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГўГ»Г±ГІГ°ГҐГ«Г®Гў
+			ГЄГ Г¦Г¤Г»ГҐ 3 ГўГ»Г±ГІГ°ГҐГ«Г  ГЄГ Г°ГІГ  Г±ГіГ¦Г ГҐГІГ±Гї*/
 			static int countShoot = 0;
 			countShoot++;
 			if ((countShoot > 2) && (countShoot % 3 == 0)) borders += 30;
 
 			while (a2 > 100) {
-				//Полет снаряда
+				//ГЏГ®Г«ГҐГІ Г±Г­Г Г°ГїГ¤Г 
 				Sleep(1);
-				SelectObject(hdc3, PenR22);	//сделаем перо активным
+				SelectObject(hdc3, PenR22);	//Г±Г¤ГҐГ«Г ГҐГ¬ ГЇГҐГ°Г® Г ГЄГІГЁГўГ­Г»Г¬
 				Rectangle(hdc3, a2, b2, a2 + 20, b2 + 10);
 				Sleep(10);
-				SelectObject(hdc3, PenW22);	//сделаем перо активным
+				SelectObject(hdc3, PenW22);	//Г±Г¤ГҐГ«Г ГҐГ¬ ГЇГҐГ°Г® Г ГЄГІГЁГўГ­Г»Г¬
 				Rectangle(hdc3, a2, b2, a2 + 20, b2 + 10);
 
-				//Рисование границ карты
+				//ГђГЁГ±Г®ГўГ Г­ГЁГҐ ГЈГ°Г Г­ГЁГ¶ ГЄГ Г°ГІГ»
 				Rectangle(hdc8, 0, 0, 1980, 0 + borders);
 				Rectangle(hdc8, 0, 1080 - borders, 1980, 1080);
 
-				//Рисование шкалы здоровья
+				//ГђГЁГ±Г®ГўГ Г­ГЁГҐ ГёГЄГ Г«Г» Г§Г¤Г®Г°Г®ГўГјГї
 				if (vector_of_objects[1]->GetHealth() > 0) Rectangle(hdc6, 1730, 40, 1730 + vector_of_objects[1]->GetHealth(), 80);
 				if (vector_of_objects[0]->GetHealth() > 0) Rectangle(hdc6, 40, 40, 40 + vector_of_objects[0]->GetHealth(), 80);
 
-				//Проверка попадания снаряда в корабль
+				//ГЏГ°Г®ГўГҐГ°ГЄГ  ГЇГ®ГЇГ Г¤Г Г­ГЁГї Г±Г­Г Г°ГїГ¤Г  Гў ГЄГ®Г°Г ГЎГ«Гј
 				int tempC2 = vector_of_objects[0]->GetCoeff();
 				int tempX2 = vector_of_objects[0]->GetX1();
 				int tempY2 = vector_of_objects[0]->GetY1();
@@ -136,7 +136,7 @@ void Cumulative::ShootFromRight(int& borders, bool& End)
 					Crush(vector_of_objects[0], tempX2 + 9 * tempC2, tempY2 - 9 * abs(tempC2), End, 1);
 					flag = 1;
 				}
-				if (flag) break;		//выход из цикла при попадании снаряда в корабль
+				if (flag) break;		//ГўГ»ГµГ®Г¤ ГЁГ§ Г¶ГЁГЄГ«Г  ГЇГ°ГЁ ГЇГ®ГЇГ Г¤Г Г­ГЁГЁ Г±Г­Г Г°ГїГ¤Г  Гў ГЄГ®Г°Г ГЎГ«Гј
 				a2 -= 20;
 			}
 		}
@@ -146,4 +146,5 @@ void Cumulative::ShootFromRight(int& borders, bool& End)
 	DeleteObject(hBrush);
 	DeleteObject(hBrush4);
 	Sleep(10);
+	
 }
