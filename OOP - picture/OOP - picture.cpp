@@ -21,8 +21,8 @@ HDC hdc6;
 //HDC hdc7;
 HDC hdc8;
 
-vector <Point*> vector_of_objects;
-vector <Projectile*> vector_of_projectile;
+vector <ILocation*> vector_of_objects;				//массив для хранения кораблей
+vector <Projectile*> vector_of_projectile;			//массив для хранения снарядов
 
 int main()
 {
@@ -48,26 +48,28 @@ int main()
 		//если контекст существует - можем работать
 		if (hdc != 0)
 		{
-			bool EndOfGame = 0;
+			bool EndOfGame = 0;						//флаг конца игры(= 1 когда 1 из кораблей будет уничтожен)
+			//инициализация кораблей
 			BattleShip ABatle(100, 500, 8);
 			SuperBatShip ASuper(430, 500, 8);
 			MegaBatShip AMega(760, 500, 8);
 			BattleShip ABatle2(100, 500, -8);
 			SuperBatShip ASuper2(430, 500, -8);
 			MegaBatShip AMega2(760, 500, -8);
-
-			Game g;
+			//инициализация снарядов
 			ArmorPiercing ap;
 			Cumulative cum;
 			Fragmentation fr;
-			int bord = 80;
+
+			Game g;
+			int bord = 80;							//ничальные границы карты
 			bool choose = 1;
 
 			while (1)
 				if (KEY_DOWN(VK_RETURN))
 					break;
 			HPEN Pen5 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
-			SelectObject(hdc, Pen5);	//сделаем перо активным
+			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
 			cout << "\n\n\t\t\t\t\t\t Player 1, choose your ship";
 			cout << "\n\n\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
@@ -78,6 +80,7 @@ int main()
 			ASuper.Show();
 			AMega.Show();
 
+			//выбор корабля первым игроком
 			while (choose)
 			{
 				if (KEY_DOWN(49)) 
@@ -99,7 +102,7 @@ int main()
 				}
 			}
 			choose = 1;
-			SelectObject(hdc, Pen5);	//сделаем перо активным
+			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
 			vector_of_objects[0]->Show();
 			Sleep(1000);
@@ -116,6 +119,8 @@ int main()
 			ABatle.Show();
 			ASuper.Show();
 			AMega.Show();
+
+			//выбор корабля вторым игроком
 			while (choose)
 			{
 				if (KEY_DOWN(49))
@@ -137,7 +142,7 @@ int main()
 				}
 			}
 			choose = 1;
-			SelectObject(hdc, Pen5);	//сделаем перо активным
+			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
 			vector_of_objects[1]->Show();
 			Sleep(1000);
@@ -147,6 +152,8 @@ int main()
 			cout << "\n\n\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
 			cout << "\t\t Damage\t = 50" << "\t\t\t\t Damage\t = 62" << "\t\t\t\t Damage\t = 75\n";
 			cout << "\t\t Flight speed = 25" << "\t\t\t Flight speed = 20" << "\t\t\t Flight speed = 17\n";
+
+			//выбор типа снаряда первым игроком 
 			while (choose)
 			{
 				if (KEY_DOWN(49))
@@ -168,7 +175,7 @@ int main()
 				}
 			}
 			choose = 1;
-			SelectObject(hdc, Pen5);	//сделаем перо активным
+			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
 			Sleep(1000);
 
@@ -176,6 +183,8 @@ int main()
 			cout << "\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
 			cout << "\t\t Damage\t = 50" << "\t\t\t\t Damage\t = 62" << "\t\t\t\t Damage\t = 75\n";
 			cout << "\t\t Flight speed = 25" << "\t\t\t Flight speed = 20" << "\t\t\t Flight speed = 17\n";
+
+			//выбор типа снаряда вторым игроком
 			while (choose)
 			{
 				if (KEY_DOWN(49))
@@ -197,30 +206,27 @@ int main()
 				}
 			}
 			choose = 1;
-			SelectObject(hdc, Pen5);	//сделаем перо активным
+			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
-			
+			for (int i = 0; i < 40; i++) { cout << endl; }
 			while (1)
 				if (KEY_DOWN(VK_RETURN))
 					break;
-			SelectObject(hdc, Pen5);	//сделаем перо активным
+
+			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
 			vector_of_objects[0]->MoveTo(300, 500);
 			vector_of_objects[1]->MoveTo(1500, 500);
 			vector_of_objects[0]->Show();
 			vector_of_objects[1]->Show();
 			Sleep(10);
-			thread T1(&Game::Gamer1, g, vector_of_objects[0], ref(bord), ref(EndOfGame));
-			thread T2(&Game::Shoot1, g, vector_of_projectile[0], ref(bord), ref(EndOfGame));
-			thread T3(&Game::Shoot2, g, vector_of_projectile[1], ref(bord), ref(EndOfGame));
-			g.Gamer2(vector_of_objects[1], bord, EndOfGame);
+			thread T1(&Game::Gamer1, g, vector_of_objects[0], ref(bord), ref(EndOfGame));		//поток для управления 1 кораблем 
+			thread T2(&Game::Shoot1, g, vector_of_projectile[0], ref(bord), ref(EndOfGame));	//поток для стрельбы 1 корабля
+			thread T3(&Game::Shoot2, g, vector_of_projectile[1], ref(bord), ref(EndOfGame));	//поток для стрельбы 2 корабля
+			g.Gamer2(vector_of_objects[1], bord, EndOfGame);									//в main - управление 2 кораблем
 			T1.join();
 			T2.join();
 			T3.join();
-
-			while (1)
-				if (KEY_DOWN(51))   //цифра 3
-					break;
 		}
 	}
 }

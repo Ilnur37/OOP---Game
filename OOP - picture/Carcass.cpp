@@ -1,6 +1,6 @@
 #include "Carcass.h"
 
-Carcass::Carcass(int X1, int Y1, int coeff):Point(X1, Y1, coeff)
+Carcass::Carcass(int X1, int Y1, int coeff) : Point(X1, Y1, coeff)
 {
 }
 

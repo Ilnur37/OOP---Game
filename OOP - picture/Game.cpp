@@ -1,7 +1,7 @@
 #include "Game.h"
 
 //Управление кораблем
-void Game::Gamer1(Point* object1, int& borders, bool& End)
+void Game::Gamer1(ILocation* object1, int& borders, bool& End)
 {
 	int FigX1, FigY1;   //новые координаты фигуры
 	int speed1;			//скорость передвижения
@@ -49,7 +49,7 @@ void Game::Gamer1(Point* object1, int& borders, bool& End)
 }
 
 //Управление кораблем
-void Game::Gamer2(Point* object2, int& borders, bool& End)
+void Game::Gamer2(ILocation* object2, int& borders, bool& End)
 {
 	int FigX2, FigY2;   //новые координаты фигур
 	int speed2;			//скорость передвижения
