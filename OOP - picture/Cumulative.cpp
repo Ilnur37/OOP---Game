@@ -146,5 +146,4 @@ void Cumulative::ShootFromRight(int& borders, bool& End)
 	DeleteObject(hBrush);
 	DeleteObject(hBrush4);
 	Sleep(10);
-	
 }
