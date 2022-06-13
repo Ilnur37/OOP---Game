@@ -49,6 +49,7 @@ int main()
 		if (hdc != 0)
 		{
 			bool EndOfGame = 0;						//флаг конца игры(= 1 когда 1 из кораблей будет уничтожен)
+			
 			//инициализация кораблей
 			BattleShip ABatle(100, 500, 8);
 			SuperBatShip ASuper(430, 500, 8);
@@ -56,6 +57,7 @@ int main()
 			BattleShip ABatle2(100, 500, -8);
 			SuperBatShip ASuper2(430, 500, -8);
 			MegaBatShip AMega2(760, 500, -8);
+
 			//инициализация снарядов
 			ArmorPiercing ap;
 			Cumulative cum;
@@ -205,7 +207,6 @@ int main()
 					choose = 0;
 				}
 			}
-			choose = 1;
 			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
 			for (int i = 0; i < 40; i++) { cout << endl; }
