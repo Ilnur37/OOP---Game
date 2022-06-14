@@ -18,10 +18,9 @@ HDC hdc3;
 HDC hdc4;
 HDC hdc5;
 HDC hdc6;
-//HDC hdc7;
 HDC hdc8;
 
-vector <ILocation*> vector_of_objects;				//массив для хранения кораблей
+vector <Point*> vector_of_objects;				//массив для хранения кораблей
 vector <Projectile*> vector_of_projectile;			//массив для хранения снарядов
 
 int main()
@@ -73,7 +72,7 @@ int main()
 			HPEN Pen5 = CreatePen(PS_SOLID, 3, RGB(0, 0, 0));
 			SelectObject(hdc, Pen5);
 			Rectangle(hdc, 0, 0, 1980, 1080);
-			cout << "\n\n\t\t\t\t\t\t Player 1, choose your ship";
+			cout << "\n\n\t\t\t\t\t Player 1, choose your ship";
 			cout << "\n\n\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
 			cout << "\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150\n";
 			cout << "\t\t Armor\t\t = 0" << "\t\t\t Armor\t\t = 7" << "\t\t\t Armor\t\t = 15\n";
@@ -113,7 +112,7 @@ int main()
 			COORD position = { 0,0 }; //позиция x и y
 			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 			SetConsoleCursorPosition(hConsole, position);
-			cout << "\n\n\t\t\t\t\t\t Player 2, choose your ship";
+			cout << "\n\n\t\t\t\t\t Player 2, choose your ship";
 			cout << "\n\n\n\n\n\n" << "\t\t (Tab 1)" << "\t\t\t\t (Tab 2)" << "\t\t\t\t (Tab 3)" << endl;
 			cout << "\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150" << "\t\t\t HealthPoint\t = 150\n";
 			cout << "\t\t Armor\t\t = 0" << "\t\t\t Armor\t\t = 7" << "\t\t\t Armor\t\t = 15\n";

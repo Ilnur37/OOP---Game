@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MegaBatShip" Collapsed="true">
-    <Position X="2.75" Y="5.5" Width="1.5" />
+    <Position X="2.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAIAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MegaBatShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SuperBatShip" Collapsed="true">
-    <Position X="2.75" Y="4.5" Width="1.5" />
+    <Position X="2.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAQAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
       <FileName>SuperBatShip.h</FileName>
@@ -22,14 +22,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BattleShip" Collapsed="true">
-    <Position X="2.75" Y="3.5" Width="1.5" />
+    <Position X="2.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAEAABAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BattleShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Carcass" Collapsed="true">
-    <Position X="2.75" Y="2.5" Width="1.5" />
+    <Position X="2.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAEgAAAAAEAAAAAAAA=</HashCode>
       <FileName>Carcass.h</FileName>
@@ -49,13 +49,6 @@
       <FileName>Game.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Point" Collapsed="true">
-    <Position X="2.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAQQAAAgAACEAAAEACBAYENAAAAEAAQAiAAAAA=</HashCode>
-      <FileName>Point.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Projectile" Collapsed="true">
     <Position X="5.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
@@ -70,11 +63,11 @@
       <FileName>Fragmentation.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ILocation" Collapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+  <Class Name="Point" Collapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAAAEAAAAACAAQEMAAAAAAAQAiAAAAA=</HashCode>
-      <FileName>ILocation.h</FileName>
+      <HashCode>AAAAAAAQQAAAgAACEAAAEACBAYENAAAAEAAQAiAAAAA=</HashCode>
+      <FileName>Point.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

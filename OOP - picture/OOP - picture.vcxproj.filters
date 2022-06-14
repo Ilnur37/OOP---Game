@@ -18,9 +18,6 @@
     <ClCompile Include="OOP - picture.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ILocation.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="GetConlWin.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -56,9 +53,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ILocation.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="GetConlWin.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

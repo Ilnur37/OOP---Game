@@ -146,7 +146,6 @@
     <ClCompile Include="Fragmentation.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GetConlWin.cpp" />
-    <ClCompile Include="ILocation.cpp" />
     <ClCompile Include="MegaBatShip.cpp" />
     <ClCompile Include="OOP - picture.cpp" />
     <ClCompile Include="Point.cpp" />
@@ -161,7 +160,6 @@
     <ClInclude Include="Fragmentation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GetConlWin.h" />
-    <ClInclude Include="ILocation.h" />
     <ClInclude Include="MegaBatShip.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Projectile.h" />

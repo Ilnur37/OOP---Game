@@ -8,7 +8,7 @@ std::mutex mtx2;
 int Projectile::GetDamage() { return damage; }
 
 //Разрушение корабля
-void Projectile::Crush(ILocation* object, int x, int y, bool& End, bool placeHP)
+void Projectile::Crush(Point* object, int x, int y, bool& End, bool placeHP)
 {
 	mtx2.lock();
 

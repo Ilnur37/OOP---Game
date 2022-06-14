@@ -2,7 +2,7 @@
 #include <vector>
 #include "Point.h"
 
-extern std::vector <ILocation*> vector_of_objects;
+extern std::vector <Point*> vector_of_objects;
 
 //Абстрактный класс снарядов
 class Projectile
@@ -18,5 +18,5 @@ public:
 	//Выстрел из орудия второго игрока
 	virtual void ShootFromRight(int& borders, bool& End) = 0;
 	//Разрушение корабля
-	void Crush(ILocation* object, int x, int y, bool& End, bool placeHP);
+	void Crush(Point* object, int x, int y, bool& End, bool placeHP);
 };
